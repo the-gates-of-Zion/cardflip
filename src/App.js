@@ -31,7 +31,8 @@ class App extends React.Component {
     var date = new Date();
     var hour = date.getHours();
     var dayNight
-    if(hour > 12){
+    //if(hour > 12){
+    if(true){
       dayNight = true;
     }else{
       dayNight = false;
@@ -44,7 +45,7 @@ class App extends React.Component {
     var date = new Date();
     var hour = date.getHours();
     var dayNight
-    if(hour < 12){dayNight = true;}else{dayNight = false;}
+    if(true){dayNight = true;}else{dayNight = false;}
     //if(hour >= 12){dayNight = true;}else{dayNight = false;}
     var bg = dayNight ? '#c2f4ff' : '#474343';
     return(
@@ -72,7 +73,7 @@ class App extends React.Component {
         alignItems="center"
         justifyContent="center"
       >
-        {dayNight ?
+        {/* {dayNight ?
         <img
         src={logo} 
         className="App-logo" 
@@ -87,7 +88,7 @@ class App extends React.Component {
         alt="logo"
         
       />
-      }
+      } */}
       
           
       </Box>

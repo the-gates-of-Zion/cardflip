@@ -6,8 +6,10 @@ import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import { CircularProgress, Container } from '@mui/material';
 
-
-
+// 
+// https://greentealatte-flowise-morning.hf.space/api/v1/prediction/787cac24-3879-4f14-b6cc-ad3e1174f4af
+// Make fragment cards
+// https://greentealatte-flowise-morning.hf.space/api/v1/prediction/0ec3cf04-761d-4b5e-9f89-3e0c2fb433c8
 
 export default class TextInput extends Component {
     constructor(props) {
@@ -22,11 +24,11 @@ export default class TextInput extends Component {
         
       }
       componentDidMount(){
-        //this.getText.bind(this)
+        //this.getInfo.bind(this)
       }
-      async query(data) {
+      async queryInfo(data) {
         var response = await fetch(
-            "https://greentealatte-flowise-morning.hf.space/api/v1/prediction/83c17767-deb3-4065-8ce7-6271941a7366",
+            "https://greentealatte-flowise-morning.hf.space/api/v1/prediction/787cac24-3879-4f14-b6cc-ad3e1174f4af",
             {
                 headers: {
                     Authorization: "Bearer mzCAQ5kx4dbMMb2Zi2IOBryC3GU12urpWf7UTGuB8i0=",
@@ -40,9 +42,10 @@ export default class TextInput extends Component {
         console.log(result)
         return result;
     }
-    async getText(){
+      
+    async getInfo(){
         this.setState({loading:true})
-        var genTextJSON = await this.query({"question":this.state.TextField})
+        var genTextJSON = await this.queryInfo({"question":'<s>[INST]'+ this.state.TextField +'</s>/n' })
         
         if (genTextJSON.hasOwnProperty("text")){
             this.setState({genText:genTextJSON.text, loading:false})
@@ -57,7 +60,7 @@ export default class TextInput extends Component {
     keyPress(e){
         if(e.keyCode == 13){
            console.log('value', e.target.value);
-           this.getText()
+           this.getInfo()
         }
      }
     render(){
@@ -75,7 +78,7 @@ export default class TextInput extends Component {
                     onChange={this.handleTextFieldChange.bind(this)}
                     onKeyDown={this.keyPress.bind(this)}
                 />
-                <Button variant="contained" endIcon={<SendIcon />} onClick={this.getText.bind(this)}>
+                <Button variant="contained" endIcon={<SendIcon />} onClick={this.getInfo.bind(this)}>
                     Send
                 </Button>
                 </Stack>

@@ -19,8 +19,8 @@ export default class Greeting extends Component {
 
   
   render() {
-    var {  username,dayNight } = this.state;
-    var greeting = dayNight ? 'Good evening 😊🌆':'Good morning 😊☀️';
+    var { dayNight } = this.state;
+    var greeting = 'Happy studying 😊☀️';
     
     
     return (
@@ -33,12 +33,10 @@ export default class Greeting extends Component {
             'black'
           }}
       >
-        <h2>{greeting} {username}! Here is a bible passage for you:</h2>
-        {dayNight ?
-        (<p>我必安然躺下睡覺，因為獨有你─耶和華使我安然居住。詩篇4:8</p>)
-        :
-        (<p>This is the day that the Lord has made; let us rejoice and be glad in it. Psalm 118:24</p>)
-  }
+        <h2>{greeting} ! </h2>
+        
+        <p>Hope you have a good time during your study today</p>
+  
       </div>
       </Container>
     );
